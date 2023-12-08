@@ -14,28 +14,56 @@ AcademiX application is a course management system written in JavaScript and bui
 - Mongoose for database interactions with MongoDB.
 
 ## Technologies:
-Express - Web framework
-EJS - Template engine
-EJS-Mate - EJS extension
-Passport - Authentication library
-Express-session - Session management middleware
-Connect-flash - Flash message middleware
-Method-override - HTTP method override middleware
-Mongoose - Object-document mapper for MongoDB
-MongoDB - NoSQL database
+- Express - Web framework
+- EJS - Template engine
+- EJS-Mate - EJS extension
+- Passport - Authentication library
+- Express-session - Session management middleware
+- Connect-flash - Flash message middleware
+- Method-override - HTTP method override middleware
+- Mongoose - Object-document mapper for MongoDB
+- MongoDB - NoSQL database
+
+## Mongo Schema
+User Schema
+
+``` bash
+ 
+    User
+    |
+    - username
+    |
+    - email
+    |
+    - enrolledCourses: [ Course(_id) ... ]
+```
+Courses schema
+
+``` bash
+ 
+    Courses
+    |
+    - name
+    |
+    - code
+    |
+    - description
+    |
+    - enrolledStudents: [ User(_id) ... ]
+```
 
 ## URL Mapping:
 
 ``` bash
-/: Home page
-/register: User registration
-/login: User login
-/logout: User logout
-/courses: List of courses
-/courses/:id: View a specific course
-/users/:id: View a user profile
-/enroll/:user_id/:course_id: Enroll a user in a course
-/unenroll/:user_id/:course_id: Unenroll a user from a course
+/:                                      Home page
+/register:                              User registration
+/login:                                 User login
+/logout:                                User logout
+/courses:                               List of courses
+/courses/:id:                           View a specific course
+/users/:id:                             View a user profile
+/enroll/:user_id/:course_id:            Enroll a user in a course
+/unenroll/:user_id/:course_id:          Unenroll a user from a course
 ```
 
 ## Additional Notes:
