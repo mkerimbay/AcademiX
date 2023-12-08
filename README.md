@@ -1,19 +1,50 @@
-# AcademiX
-git push origin main
+# AcademiX - Course Management System
+This README file provides an overview of the AcademiX application, a course management system written in JavaScript and built on top of the Express framework.
 
-npm init
-npm i express mongoose ejs
-npm install mongodb@6.1
-npm i method-override
-npm i ejs-mate
+## Features:
 
-install mongo on local machine
-https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
+- User management with registration, login, and logout functionalities.
+- Course management with listing, viewing, and enrolling/unenrolling options.
+- User profile with enrolled courses overview.
+- Flash messages for success and error notifications.
+- Secure user authentication with Passport and LocalStrategy.
+- Session management with Express-session and MongoStore.
+- User interface built with EJS and EJS-Mate templates.
+- Static files serving for public assets.
+- Mongoose for database interactions with MongoDB.
 
+## Technologies:
+Express - Web framework
+EJS - Template engine
+EJS-Mate - EJS extension
+Passport - Authentication library
+Express-session - Session management middleware
+Connect-flash - Flash message middleware
+Method-override - HTTP method override middleware
+Mongoose - Object-document mapper for MongoDB
+MongoDB - NoSQL database
 
-mongosh
-show databases
-use academix
-show tables
-db
-db.students.find()
+## URL Mapping:
+
+''' bash
+/: Home page
+/register: User registration
+/login: User login
+/logout: User logout
+/courses: List of courses
+/courses/:id: View a specific course
+/users/:id: View a user profile
+/enroll/:user_id/:course_id: Enroll a user in a course
+/unenroll/:user_id/:course_id: Unenroll a user from a course
+'''
+
+## Additional Notes:
+
+This is a basic implementation of a course management system.
+Further development can be done to add features like course creation, editing, and role-based access control.
+Please refer to the code comments for detailed explanations of specific functions.
+Contributing:
+
+Feel free to fork this repository and contribute to the project by adding new features, fixing bugs, and improving documentation.
+
+Enjoy using AcademiX!
