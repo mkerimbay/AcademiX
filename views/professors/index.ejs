@@ -1,0 +1,9 @@
+<% layout('layouts/boilerplate') %>
+
+<h1>Professors Index</h1> 
+<ul>
+    <% for (let professor of professors) { %>
+        <li><%= professor.firstName %> - <%= professor.lastName %> (<b><%= professor.rank %></b>)</li>
+    <% } %>
+</ul>
+        

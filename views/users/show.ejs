@@ -1,0 +1,77 @@
+<% layout('layouts/boilerplate') %>
+
+<!-- https://bbbootstrap.com/snippets/bootstrap-5-user-social-profile-transition-effect-79746232 -->
+
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+            
+            <div class="card p-3 py-4">
+                
+                <div class="text-center mt-3">
+                    <h5 class="mt-2 mb-3"><b>Username: </b>  {<%= user.username %>}</h5>
+                    <h5 class="mt-2 mb-3"><b>Email:</b> {<%= user.email %>}</h5>
+                </div>
+
+                
+              
+                      <span class="mt-2 mb-30"> <h3>My Enrolled Courses:</h3></span>
+                      <%  if(courses.length == 0) { %>
+                          <h6 class="mb-0 mt-3"> {Currently no courses enrolled} </a></h6>
+                      <% } else { %>
+                        <table class="table manage-candidates-top mb-0">
+                          <thead>
+                            <tr>
+                              <th>Courses</th>
+                              <th class="text-center">Code</th>
+                              <th class="text-center">Professor</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <% for (let course of courses) { %>
+                              
+                                <tr class="candidates-list">
+                                  <td class="title">
+                                    <div class="candidate-list-details">
+                                      <div class="candidate-list-info">
+                                        <div class="candidate-list-title">
+                                          <h5 class="mb-0">
+                                              <a href="/courses/<%= course._id %>"><%= course.name %> </a>
+                                          </h5>
+                                        </div>
+                                        <div class="candidate-list-option">
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td class="candidate-list-favourite-time text-center">
+                                    <h5 class="mb-0"><%= course.code %></a></h5>
+                                  </td>
+                                  <td class="candidate-list-favourite-time text-center">
+                                      <h5 class="mb-0"><%= course.professor %></a></h5>
+                                    </td>
+                                </tr>
+                          <% } %>
+                          
+                          
+                          </tbody>
+                        </table>
+                          
+  
+  
+  
+                      <% } %>
+                      <div class="px-4 mt-30">
+                          <p class="fonts"> </p>
+                      </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+<footer>
+    <a href="/courses">All Courses</a>
+</footer>

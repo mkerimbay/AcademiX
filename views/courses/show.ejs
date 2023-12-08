@@ -1,0 +1,124 @@
+<% layout('layouts/boilerplate') %>
+
+<!-- https://bbbootstrap.com/snippets/bootstrap-5-user-social-profile-transition-effect-79746232 -->
+
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+            
+            <div class="card p-3 py-4">
+                
+                <div class="text-center mt-3">
+                    
+                        <% console.log(currentUser) %>
+                        <% console.log(course._id) %>
+                        <h5 class="mt-2 mb-3"><%= course.code %></h5>
+                        <h5 class="mt-2 mb-3"><%= course.name %></h5>
+                        <h6 class="mt-2 mb-3">Prof: <%= course.professor %></h6>
+
+                        <span class="mt-2 mb-30"><%= course.description %></span>
+                        
+                        <div class="px-4 mt-30">
+                            <p class="fonts"> </p>
+                        
+                        </div>
+                    <form action="/enroll/<%=currentUser._id%>/<%=course._id%>?_method=PUT" method="POST" novalidate class="validated-form" 
+                        <div class="buttons">
+                            <% if (!currentUser.enrolledCourses.includes(course._id)) { %>
+                                <button class="btn btn-outline-primary px-4">Enroll</button>
+                            <% } %>
+                        </div>
+                    </form>
+                    <form action="/unenroll/<%=currentUser._id%>/<%=course._id%>?_method=PUT" method="POST" novalidate class="validated-form" 
+                        <div class="buttons">
+                            <% if (currentUser.enrolledCourses.includes(course._id)) { %>
+                                <button class="btn btn-outline-primary px-4">UnEnroll</button>
+                            <% } %>
+                        </div>
+                    </form>
+
+                    
+                </div>
+                
+
+                <div class="container mt-5">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-7">
+                            
+                            <div class="card p-3 py-4">
+                                
+                                <div class="text-center mt-3">
+                
+                                    <span class="mt-2 mb-30"> Enrolled Students:</span>
+                                    <%  if(users.length == 0) { %>
+                                        <h6 class="mb-0 mt-3"> {Currently no students enrolled yet} </a></h6>
+                                    <% } else { %>
+                                      <table class="table manage-candidates-top mb-0">
+                                        <thead>
+                                          <tr>
+                                            <th>Students</th>
+                                            <th class="text-center">email</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% for (let user of users) { %>
+                                            
+                                            <tr class="candidates-list">
+                                            <td class="title">
+                                              <div class="candidate-list-details">
+                                                <div class="candidate-list-info">
+                                                  <div class="candidate-list-title">
+                                                    <h5 class="mb-0">
+                                                        <a href="/users/<%= user._id %>"><%= user.username %> </a>
+                                                    </h5>
+                                                  </div>
+                                                  <div class="candidate-list-option">
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </td>
+                                            <td class="candidate-list-favourite-time text-center">
+                                              <h5 class="mb-0"><a href="/users/<%= user._id %>"><%= user.email %></a></h5>
+                                            </td>
+                                          </tr>
+                                        <% } %>
+                                        
+                                        
+                                        </tbody>
+                                      </table>
+                                        
+                
+                
+                
+                                    <% } %>
+                
+                     
+                                    
+                
+                                    
+                
+                
+                                    <div class="px-4 mt-30">
+                                        <p class="fonts"> </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+<footer>
+    <a href="/courses">Back to All Courses</a>
+</footer>
