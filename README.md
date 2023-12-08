@@ -1,5 +1,5 @@
-# AcademiX - Course Management System
-This README file provides an overview of the AcademiX application, a course management system written in JavaScript and built on top of the Express framework.
+# AcademiX 
+AcademiX application is a course management system written in JavaScript and built on top of the Express framework.
 
 ## Features:
 
@@ -26,7 +26,7 @@ MongoDB - NoSQL database
 
 ## URL Mapping:
 
-''' bash
+``` bash
 /: Home page
 /register: User registration
 /login: User login
@@ -36,14 +36,15 @@ MongoDB - NoSQL database
 /users/:id: View a user profile
 /enroll/:user_id/:course_id: Enroll a user in a course
 /unenroll/:user_id/:course_id: Unenroll a user from a course
-'''
+```
 
 ## Additional Notes:
 
 This is a basic implementation of a course management system.
 Further development can be done to add features like course creation, editing, and role-based access control.
 Please refer to the code comments for detailed explanations of specific functions.
-Contributing:
+
+## Contributing:
 
 Feel free to fork this repository and contribute to the project by adding new features, fixing bugs, and improving documentation.
 
